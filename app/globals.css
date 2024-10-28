@@ -2,22 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
+    --background: linear-gradient(270deg,#2F632B, #3EA1C8,#162C4A );
   }
-}
 
 body {
+  @apply h-screen text-base antialiased;
   color: var(--foreground);
   background: var(--background);
+  background-size: 400% 400%;
+  animation: gradient-animation 10s ease infinite;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @layer utilities {
